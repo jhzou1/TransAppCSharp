@@ -25,7 +25,7 @@ namespace Trans_C_Sharp
             //屏蔽测试按钮
             this.btnGet.Visible = false;
 
-            this.lblInfo.Text = "UncleTrans App 叔叔翻译 beta 1.2.2";
+            this.lblInfo.Text = "UncleTrans App 叔叔翻译 beta 1.2.4";
 
             this.SizeChanged += MainFrm_SizeChanged;
         }
@@ -268,7 +268,7 @@ namespace Trans_C_Sharp
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //this.Tag = "Close for update";
+            this.Tag = "Close for update";
 
             this.Close();
         }
