@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Runtime.InteropServices;
+
 namespace Trans_C_Sharp
 {
     public partial class WebMainfrm : Form
@@ -23,7 +25,7 @@ namespace Trans_C_Sharp
             //屏蔽测试按钮
             this.btnGet.Visible = false;
 
-            this.lblInfo.Text = "UncleTrans App 叔叔翻译 beta 1.2.1";
+            this.lblInfo.Text = "UncleTrans App 叔叔翻译 beta 1.2.2";
 
             this.SizeChanged += MainFrm_SizeChanged;
         }
@@ -290,6 +292,23 @@ namespace Trans_C_Sharp
                     notifyIcon1.Visible = false;
                 }
             }
+        }
+
+        [DllImport("user32")]
+        public static extern int SetParent(int hWndChild, int hWndNewParent);
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            //this.IsMdiContainer = true;
+
+            SettingFrm settingFrm = new SettingFrm();
+            //settingFrm.MdiParent = this;
+            //settingFrm.StartPosition = FormStartPosition.CenterScreen;
+            //settingFrm.Top =this.Top;
+            //settingFrm.Left= this.Left;
+
+            settingFrm.ShowDialog();
+
+            //SetParent((int)settingFrm.Handle, (int)this.Handle);
         }
     }
 }

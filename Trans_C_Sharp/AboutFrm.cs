@@ -27,6 +27,8 @@ namespace Trans_C_Sharp
             this.txtAbout.AppendText("7.新增图片识别翻译功能.\n");
             this.txtAbout.AppendText("8.新增翻译结果复制功能.\n");
             this.txtAbout.AppendText("9.直连百度翻译功能，优化延迟.\n");
+            this.txtAbout.AppendText("10.色差优化.\n");
+            this.txtAbout.AppendText("11.优化子窗体显示位置问题，自动跟随父窗体定位.\n");
         }
     }
 }
