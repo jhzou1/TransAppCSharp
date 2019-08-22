@@ -26,6 +26,7 @@ namespace Trans_C_Sharp
             this.txtAbout.AppendText("6.新增软件设置重置退出选项功能，退出选择可自动执行.\n");
             this.txtAbout.AppendText("7.新增图片识别翻译功能.\n");
             this.txtAbout.AppendText("8.新增翻译结果复制功能.\n");
+            this.txtAbout.AppendText("9.直连百度翻译功能，优化延迟.\n");
         }
     }
 }

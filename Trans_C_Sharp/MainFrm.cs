@@ -574,5 +574,12 @@ namespace Trans_C_Sharp
         }
 
         #endregion
+
+        private void btnOpenWeb_Click(object sender, EventArgs e)
+        {
+            WebMainfrm webMainfrm = new WebMainfrm();
+
+            webMainfrm.Show();
+        }
     }
 }

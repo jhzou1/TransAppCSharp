@@ -46,6 +46,7 @@
             this.lblMsg = new System.Windows.Forms.Label();
             this.btnImgTrans = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
+            this.btnOpenWeb = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -215,12 +216,26 @@
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
+            // btnOpenWeb
+            // 
+            this.btnOpenWeb.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenWeb.Image")));
+            this.btnOpenWeb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpenWeb.Location = new System.Drawing.Point(705, 23);
+            this.btnOpenWeb.Name = "btnOpenWeb";
+            this.btnOpenWeb.Size = new System.Drawing.Size(109, 31);
+            this.btnOpenWeb.TabIndex = 11;
+            this.btnOpenWeb.Text = "百度翻译";
+            this.btnOpenWeb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOpenWeb.UseVisualStyleBackColor = true;
+            this.btnOpenWeb.Click += new System.EventHandler(this.btnOpenWeb_Click);
+            // 
             // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(233)))), ((int)(((byte)(220)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
             this.ClientSize = new System.Drawing.Size(1056, 669);
+            this.Controls.Add(this.btnOpenWeb);
             this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.btnImgTrans);
             this.Controls.Add(this.lblMsg);
@@ -264,6 +279,7 @@
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private System.Windows.Forms.Button btnImgTrans;
         private System.Windows.Forms.Button btnCopy;
+        private System.Windows.Forms.Button btnOpenWeb;
     }
 }
 

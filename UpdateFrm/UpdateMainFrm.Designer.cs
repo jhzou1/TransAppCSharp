@@ -37,10 +37,12 @@
             // lblUpdateState
             // 
             this.lblUpdateState.AutoSize = true;
+            this.lblUpdateState.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdateState.ForeColor = System.Drawing.Color.White;
             this.lblUpdateState.Location = new System.Drawing.Point(191, 76);
             this.lblUpdateState.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUpdateState.Name = "lblUpdateState";
-            this.lblUpdateState.Size = new System.Drawing.Size(158, 17);
+            this.lblUpdateState.Size = new System.Drawing.Size(189, 20);
             this.lblUpdateState.TabIndex = 0;
             this.lblUpdateState.Text = "label1。。。。。。。。";
             // 
@@ -58,6 +60,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(128)))), ((int)(((byte)(138)))));
             this.ClientSize = new System.Drawing.Size(565, 179);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblUpdateState);
