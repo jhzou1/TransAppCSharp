@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Trans_C_Sharp")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("叔叔翻译")]
+[assembly: AssemblyDescription("叔叔翻译让你变得更强大!")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("一家致力于垃圾市场的公司")]
 [assembly: AssemblyProduct("Trans_C_Sharp")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]

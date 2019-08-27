@@ -25,7 +25,7 @@ namespace Trans_C_Sharp
             //屏蔽测试按钮
             this.btnGet.Visible = false;
 
-            this.lblInfo.Text = "UncleTrans App 叔叔翻译 beta 1.2.4";
+            this.lblInfo.Text = "UncleTrans App 叔叔翻译 beta 1.2.7";
 
             this.SizeChanged += MainFrm_SizeChanged;
         }
@@ -261,9 +261,23 @@ namespace Trans_C_Sharp
 
         private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SettingFrm settingFrm = new SettingFrm();
 
-            settingFrm.ShowDialog();
+            if (WindowState == FormWindowState.Minimized)
+            {
+                //还原窗体显示    
+                WindowState = FormWindowState.Normal;
+                //激活窗体并给予它焦点
+                this.Activate();
+                //任务栏区显示图标
+                this.ShowInTaskbar = true;
+                //托盘区图标隐藏
+                notifyIcon1.Visible = false;
+
+                SettingFrm settingFrm = new SettingFrm();
+
+                settingFrm.ShowDialog();
+            }
+            
         }
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)

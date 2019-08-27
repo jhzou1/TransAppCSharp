@@ -20,8 +20,12 @@ namespace Trans_C_Sharp
 
             this.rdMin.Checked = true;
 
+            //获取本程序启动路径
+            string locationStr = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            locationStr = $"{locationStr}\\_AppConfig.xml";
+
             //载入配置文件读取是否已经记住选择，如果配置文件不存在就创建一个
-            if (!File.Exists("_AppConfig.xml"))
+            if (!File.Exists(locationStr))
             {
                 _AppConfig = new _AppConfig()
                 {
@@ -29,7 +33,7 @@ namespace Trans_C_Sharp
                     IsMinimized = true,
                     RememberSelected = false
                 };
-                Common.ObjSerialize.SaveToXml(_AppConfig, "_AppConfig.xml");
+                Common.ObjSerialize.SaveToXml(_AppConfig, locationStr);
             }
             else
             {

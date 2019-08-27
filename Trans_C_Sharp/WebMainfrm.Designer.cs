@@ -41,6 +41,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblMsg = new System.Windows.Forms.Label();
             this.btnAbout = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.btnCheckForUpdate = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -49,7 +50,6 @@
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.btnSettings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,10 +59,10 @@
             // 
             // btnGet
             // 
-            this.btnGet.Location = new System.Drawing.Point(1003, 447);
-            this.btnGet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGet.Location = new System.Drawing.Point(1337, 550);
+            this.btnGet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGet.Name = "btnGet";
-            this.btnGet.Size = new System.Drawing.Size(56, 32);
+            this.btnGet.Size = new System.Drawing.Size(75, 39);
             this.btnGet.TabIndex = 2;
             this.btnGet.Text = "抓取html";
             this.btnGet.UseVisualStyleBackColor = true;
@@ -71,21 +71,21 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 10);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1050, 432);
+            this.dataGridView1.Size = new System.Drawing.Size(1400, 532);
             this.dataGridView1.TabIndex = 3;
             // 
             // webBr1
             // 
             this.webBr1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBr1.Location = new System.Drawing.Point(0, 0);
-            this.webBr1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.webBr1.MinimumSize = new System.Drawing.Size(15, 16);
+            this.webBr1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.webBr1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBr1.Name = "webBr1";
-            this.webBr1.Size = new System.Drawing.Size(975, 584);
+            this.webBr1.Size = new System.Drawing.Size(1300, 719);
             this.webBr1.TabIndex = 4;
             this.webBr1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBr1_DocumentCompleted);
             // 
@@ -98,9 +98,9 @@
             this.topPanel.Controls.Add(this.btnClose);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
-            this.topPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.topPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(975, 81);
+            this.topPanel.Size = new System.Drawing.Size(1300, 100);
             this.topPanel.TabIndex = 5;
             this.topPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseDown);
             this.topPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseMove);
@@ -110,10 +110,10 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(21, 19);
+            this.pictureBox1.Size = new System.Drawing.Size(28, 23);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -122,10 +122,9 @@
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.ForeColor = System.Drawing.Color.White;
-            this.lblInfo.Location = new System.Drawing.Point(34, 6);
-            this.lblInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblInfo.Location = new System.Drawing.Point(45, 7);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(68, 17);
+            this.lblInfo.Size = new System.Drawing.Size(81, 20);
             this.lblInfo.TabIndex = 1;
             this.lblInfo.Text = "叔叔翻译";
             // 
@@ -136,10 +135,10 @@
             this.btnMini.FlatAppearance.BorderSize = 0;
             this.btnMini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMini.ForeColor = System.Drawing.Color.White;
-            this.btnMini.Location = new System.Drawing.Point(880, 2);
-            this.btnMini.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMini.Location = new System.Drawing.Point(1173, 2);
+            this.btnMini.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMini.Name = "btnMini";
-            this.btnMini.Size = new System.Drawing.Size(42, 32);
+            this.btnMini.Size = new System.Drawing.Size(56, 32);
             this.btnMini.TabIndex = 0;
             this.btnMini.Text = "一";
             this.btnMini.UseVisualStyleBackColor = true;
@@ -152,10 +151,10 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(933, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Location = new System.Drawing.Point(1244, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(42, 32);
+            this.btnClose.Size = new System.Drawing.Size(55, 32);
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -169,10 +168,10 @@
             this.panel2.Controls.Add(this.btnSettings);
             this.panel2.Controls.Add(this.btnCheckForUpdate);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 527);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(0, 649);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(975, 57);
+            this.panel2.Size = new System.Drawing.Size(1300, 70);
             this.panel2.TabIndex = 6;
             // 
             // lblMsg
@@ -180,10 +179,9 @@
             this.lblMsg.AutoSize = true;
             this.lblMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMsg.ForeColor = System.Drawing.Color.White;
-            this.lblMsg.Location = new System.Drawing.Point(677, 26);
-            this.lblMsg.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMsg.Location = new System.Drawing.Point(903, 32);
             this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(72, 17);
+            this.lblMsg.Size = new System.Drawing.Size(89, 20);
             this.lblMsg.TabIndex = 10;
             this.lblMsg.Text = "                ";
             // 
@@ -196,83 +194,15 @@
             this.btnAbout.ForeColor = System.Drawing.Color.White;
             this.btnAbout.Image = ((System.Drawing.Image)(resources.GetObject("btnAbout.Image")));
             this.btnAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbout.Location = new System.Drawing.Point(929, 17);
-            this.btnAbout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAbout.Location = new System.Drawing.Point(1239, 21);
+            this.btnAbout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(44, 31);
+            this.btnAbout.Size = new System.Drawing.Size(59, 38);
             this.btnAbout.TabIndex = 9;
             this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.btnAbout, "关于软件");
             this.btnAbout.UseVisualStyleBackColor = false;
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
-            // 
-            // btnCheckForUpdate
-            // 
-            this.btnCheckForUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCheckForUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(128)))), ((int)(((byte)(138)))));
-            this.btnCheckForUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCheckForUpdate.BackgroundImage")));
-            this.btnCheckForUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCheckForUpdate.FlatAppearance.BorderSize = 0;
-            this.btnCheckForUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckForUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnCheckForUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckForUpdate.Location = new System.Drawing.Point(884, 15);
-            this.btnCheckForUpdate.Name = "btnCheckForUpdate";
-            this.btnCheckForUpdate.Size = new System.Drawing.Size(31, 31);
-            this.btnCheckForUpdate.TabIndex = 8;
-            this.btnCheckForUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnCheckForUpdate, "检查更新");
-            this.btnCheckForUpdate.UseVisualStyleBackColor = false;
-            this.btnCheckForUpdate.Click += new System.EventHandler(this.btnCheckForUpdate_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(933, 81);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(42, 446);
-            this.panel3.TabIndex = 7;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.显示界面ToolStripMenuItem,
-            this.设置ToolStripMenuItem,
-            this.退出ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 70);
-            // 
-            // 显示界面ToolStripMenuItem
-            // 
-            this.显示界面ToolStripMenuItem.Name = "显示界面ToolStripMenuItem";
-            this.显示界面ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.显示界面ToolStripMenuItem.Text = "显示界面";
-            this.显示界面ToolStripMenuItem.Click += new System.EventHandler(this.显示界面ToolStripMenuItem_Click);
-            // 
-            // 设置ToolStripMenuItem
-            // 
-            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.设置ToolStripMenuItem.Text = "设置";
-            this.设置ToolStripMenuItem.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
-            // 
-            // 退出ToolStripMenuItem
-            // 
-            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.退出ToolStripMenuItem.Text = "退出";
-            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "叔叔翻译APP";
-            this.notifyIcon1.Visible = true;
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick_1);
             // 
             // btnSettings
             // 
@@ -284,20 +214,90 @@
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.ForeColor = System.Drawing.Color.White;
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(834, 17);
+            this.btnSettings.Location = new System.Drawing.Point(1112, 21);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(31, 31);
+            this.btnSettings.Size = new System.Drawing.Size(41, 38);
             this.btnSettings.TabIndex = 8;
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.toolTip1.SetToolTip(this.btnSettings, "设置");
             this.btnSettings.UseVisualStyleBackColor = false;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
+            // btnCheckForUpdate
+            // 
+            this.btnCheckForUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCheckForUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(128)))), ((int)(((byte)(138)))));
+            this.btnCheckForUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCheckForUpdate.BackgroundImage")));
+            this.btnCheckForUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCheckForUpdate.FlatAppearance.BorderSize = 0;
+            this.btnCheckForUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckForUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnCheckForUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckForUpdate.Location = new System.Drawing.Point(1179, 18);
+            this.btnCheckForUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCheckForUpdate.Name = "btnCheckForUpdate";
+            this.btnCheckForUpdate.Size = new System.Drawing.Size(41, 38);
+            this.btnCheckForUpdate.TabIndex = 8;
+            this.btnCheckForUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnCheckForUpdate, "检查更新");
+            this.btnCheckForUpdate.UseVisualStyleBackColor = false;
+            this.btnCheckForUpdate.Click += new System.EventHandler(this.btnCheckForUpdate_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(1244, 100);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(56, 549);
+            this.panel3.TabIndex = 7;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.显示界面ToolStripMenuItem,
+            this.设置ToolStripMenuItem,
+            this.退出ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(143, 76);
+            // 
+            // 显示界面ToolStripMenuItem
+            // 
+            this.显示界面ToolStripMenuItem.Name = "显示界面ToolStripMenuItem";
+            this.显示界面ToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
+            this.显示界面ToolStripMenuItem.Text = "显示界面";
+            this.显示界面ToolStripMenuItem.Click += new System.EventHandler(this.显示界面ToolStripMenuItem_Click);
+            // 
+            // 设置ToolStripMenuItem
+            // 
+            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
+            this.设置ToolStripMenuItem.Text = "设置";
+            this.设置ToolStripMenuItem.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
+            // 
+            // 退出ToolStripMenuItem
+            // 
+            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
+            this.退出ToolStripMenuItem.Text = "退出";
+            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "叔叔翻译APP";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick_1);
+            // 
             // WebMainfrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 584);
+            this.ClientSize = new System.Drawing.Size(1300, 719);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.topPanel);
@@ -306,7 +306,7 @@
             this.Controls.Add(this.btnGet);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "WebMainfrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

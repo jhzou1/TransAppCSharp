@@ -29,6 +29,8 @@ namespace Trans_C_Sharp
             this.txtAbout.AppendText("9.直连百度翻译功能，优化延迟.\n");
             this.txtAbout.AppendText("10.色差优化.\n");
             this.txtAbout.AppendText("11.优化子窗体显示位置问题，自动跟随父窗体定位.\n");
+            this.txtAbout.AppendText("12.修复托盘显示设置时候位置混乱问题.\n");
+            this.txtAbout.AppendText("13.程序运行添加请求权限功能，确保程序需要的升级权限正常运行.\n");
         }
     }
 }
