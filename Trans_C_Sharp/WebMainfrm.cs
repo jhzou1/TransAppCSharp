@@ -26,7 +26,7 @@ namespace Trans_C_Sharp
             //屏蔽测试按钮
             this.btnGet.Visible = false;
 
-            string infoMsg= "UncleTrans App 叔叔翻译 beta 1.2.9";
+            string infoMsg= "UncleTrans App 叔叔翻译 beta 1.3.0";
             this.lblInfo.Text = infoMsg;
             this.notifyIcon1.Text = infoMsg;
             this.SizeChanged += MainFrm_SizeChanged;
@@ -194,7 +194,8 @@ namespace Trans_C_Sharp
         private void btnAbout_Click(object sender, EventArgs e)
         {
             AboutFrm aboutFrm = new AboutFrm();
-            theme.SetFormTheme(Program.GlbAppConfig.theme, aboutFrm);
+            if (Program.GlbAppConfig.theme != null)
+                theme.SetFormTheme(Program.GlbAppConfig.theme, aboutFrm);
             aboutFrm.ShowDialog();
         }
 
@@ -363,7 +364,8 @@ namespace Trans_C_Sharp
         private void btnSettings_Click(object sender, EventArgs e)
         {
             SettingFrm settingFrm = new SettingFrm();
-            theme.SetFormTheme(Program.GlbAppConfig.theme,settingFrm);
+            if (Program.GlbAppConfig.theme != null)
+                theme.SetFormTheme(Program.GlbAppConfig.theme,settingFrm);
             settingFrm.ShowDialog();
         }
 
