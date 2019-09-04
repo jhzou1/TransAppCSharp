@@ -22,18 +22,22 @@ namespace Trans_C_Sharp
         private void btnResetExitConfig_Click(object sender, EventArgs e)
         {
             //载入配置文件读取是否已经记住选择，如果配置文件不存在就创建一个
-            if (File.Exists("_AppConfig.xml"))
+            if (File.Exists("_AppConfig.obj"))
             {
-                File.Delete("_AppConfig.xml");
+                File.Delete("_AppConfig.obj");
             }
-           
-            _AppConfig = new _AppConfig()
+
+            Program.GlbAppConfig = new _AppConfig()
             {
                 IsExitProgram = false,
                 IsMinimized = true,
-                RememberSelected = false
+                RememberSelected = false,
+                theme=null
             };
-            Common.ObjSerialize.SaveToXml(_AppConfig, "_AppConfig.xml");
+            //Common.ObjSerialize.SaveToXml(_AppConfig, "_AppConfig.xml");
+            //保存主题设置
+            Common.ObjSerialize.SerializeObj(Program.GlbAppConfig, "_AppConfig.obj");
+
             MessageBox.Show("重置成功，退出询问恢复默认.");
         }
     }

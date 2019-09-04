@@ -12,6 +12,7 @@ namespace Trans_C_Sharp
     /// </summary>
     /// 
     [XmlRoot]
+    [Serializable]
     public    class _AppConfig
     {
         [XmlElement]
@@ -21,5 +22,8 @@ namespace Trans_C_Sharp
         public bool IsExitProgram { get; set; }
         [XmlElement]
         public bool RememberSelected { get; set; }
+
+        [XmlElement]
+        public Theme theme { get; set; }
     }
 }

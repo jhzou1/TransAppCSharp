@@ -13,36 +13,23 @@ namespace Trans_C_Sharp
 {
     public partial class AskFrm : Form
     {
-        private _AppConfig _AppConfig = null;
-        public AskFrm()
+        private ThemeService themeService = null;
+        public AskFrm(ThemeService TService)
         {
             InitializeComponent();
 
             this.rdMin.Checked = true;
 
-            //获取本程序启动路径
-            string locationStr = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-            locationStr = $"{locationStr}\\_AppConfig.xml";
-
-            //载入配置文件读取是否已经记住选择，如果配置文件不存在就创建一个
-            if (!File.Exists(locationStr))
-            {
-                _AppConfig = new _AppConfig()
-                {
-                    IsExitProgram = false,
-                    IsMinimized = true,
-                    RememberSelected = false
-                };
-                Common.ObjSerialize.SaveToXml(_AppConfig, locationStr);
-            }
-            else
-            {
-                _AppConfig = (_AppConfig)Common.ObjSerialize.GetFromXml<_AppConfig>("_AppConfig.xml");
-            }
             //设置选择
-            this.rdMin.Checked = _AppConfig.IsMinimized;
-            this.rdExit.Checked = _AppConfig.IsExitProgram;
-            this.ckRemember.Checked = _AppConfig.RememberSelected;
+            this.rdMin.Checked = Program.GlbAppConfig.IsMinimized;
+            this.rdExit.Checked = Program.GlbAppConfig.IsExitProgram;
+            this.ckRemember.Checked = Program.GlbAppConfig.RememberSelected;
+
+            themeService = TService;
+
+            themeService.NotityEvent += SetTheme;
+            if (Program.GlbAppConfig.theme != null)
+                themeService.NotifyAll();
 
         }
 
@@ -50,10 +37,11 @@ namespace Trans_C_Sharp
         {
             if (this.ckRemember.Checked)
             {
-                _AppConfig.IsMinimized=this.rdMin.Checked?true:false;
-                _AppConfig.IsExitProgram= this.rdExit.Checked ? true : false;
-                _AppConfig.RememberSelected= this.ckRemember.Checked ? true : false;
-                Common.ObjSerialize.SaveToXml(_AppConfig, "_AppConfig.xml");
+                Program.GlbAppConfig.IsMinimized=this.rdMin.Checked?true:false;
+                Program.GlbAppConfig.IsExitProgram= this.rdExit.Checked ? true : false;
+                Program.GlbAppConfig.RememberSelected= this.ckRemember.Checked ? true : false;
+                //Common.ObjSerialize.SaveToXml(Program.GlbAppConfig, "_AppConfig.xml");
+                Program.GlbAppConfig = (_AppConfig)Common.ObjSerialize.Deserialize("_AppConfig.obj");
             }
 
             if (this.rdMin.Checked)
@@ -81,6 +69,13 @@ namespace Trans_C_Sharp
             {
                 btnOk_Click(null, null);
             }
+        }
+
+        //通知动作
+        private void SetTheme()
+        {
+            //设置当前窗体主题
+            themeService.SetFormTheme(Program.GlbAppConfig.theme, this);
         }
     }
 }

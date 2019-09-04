@@ -34,6 +34,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.webBr1 = new System.Windows.Forms.WebBrowser();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.btnSkin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblInfo = new System.Windows.Forms.Label();
             this.btnMini = new System.Windows.Forms.Button();
@@ -92,6 +93,7 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(128)))), ((int)(((byte)(138)))));
+            this.topPanel.Controls.Add(this.btnSkin);
             this.topPanel.Controls.Add(this.pictureBox1);
             this.topPanel.Controls.Add(this.lblInfo);
             this.topPanel.Controls.Add(this.btnMini);
@@ -105,6 +107,20 @@
             this.topPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseDown);
             this.topPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseMove);
             this.topPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseUp);
+            // 
+            // btnSkin
+            // 
+            this.btnSkin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSkin.BackgroundImage")));
+            this.btnSkin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSkin.FlatAppearance.BorderSize = 0;
+            this.btnSkin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSkin.Location = new System.Drawing.Point(1104, 2);
+            this.btnSkin.Name = "btnSkin";
+            this.btnSkin.Size = new System.Drawing.Size(42, 32);
+            this.btnSkin.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.btnSkin, "皮肤");
+            this.btnSkin.UseVisualStyleBackColor = true;
+            this.btnSkin.Click += new System.EventHandler(this.btnSkin_Click);
             // 
             // pictureBox1
             // 
@@ -215,7 +231,7 @@
             this.btnSettings.ForeColor = System.Drawing.Color.White;
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSettings.Location = new System.Drawing.Point(1112, 21);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(4);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(41, 38);
             this.btnSettings.TabIndex = 8;
@@ -235,7 +251,7 @@
             this.btnCheckForUpdate.ForeColor = System.Drawing.Color.White;
             this.btnCheckForUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCheckForUpdate.Location = new System.Drawing.Point(1179, 18);
-            this.btnCheckForUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCheckForUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnCheckForUpdate.Name = "btnCheckForUpdate";
             this.btnCheckForUpdate.Size = new System.Drawing.Size(41, 38);
             this.btnCheckForUpdate.TabIndex = 8;
@@ -345,5 +361,6 @@
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button btnSkin;
     }
 }

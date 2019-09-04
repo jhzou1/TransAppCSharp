@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>text_tree.ico</ApplicationIcon>
+    <ApplicationIcon>text_bold.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common">
@@ -77,6 +77,14 @@
     <Compile Include="SettingFrm.Designer.cs">
       <DependentUpon>SettingFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Theme.cs" />
+    <Compile Include="ThemeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemeForm.Designer.cs">
+      <DependentUpon>ThemeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ThemeService.cs" />
     <Compile Include="Tools\DataValidate.cs" />
     <Compile Include="Models\Rcver.cs" />
     <Compile Include="Models\LanguageModel.cs" />
@@ -111,6 +119,9 @@
     <EmbeddedResource Include="SettingFrm.resx">
       <DependentUpon>SettingFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ThemeForm.resx">
+      <DependentUpon>ThemeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WebMainfrm.resx">
       <DependentUpon>WebMainfrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,7 +139,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="text_tree.ico" />
+    <Content Include="text_bold.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,6 +16,7 @@ namespace Trans_C_Sharp
 {
     public partial class WebMainfrm : Form
     {
+        public  ThemeService theme = null;
         public WebMainfrm()
         {
             InitializeComponent();
@@ -25,10 +26,58 @@ namespace Trans_C_Sharp
             //屏蔽测试按钮
             this.btnGet.Visible = false;
 
-            this.lblInfo.Text = "UncleTrans App 叔叔翻译 beta 1.2.7";
-
+            string infoMsg= "UncleTrans App 叔叔翻译 beta 1.2.9";
+            this.lblInfo.Text = infoMsg;
+            this.notifyIcon1.Text = infoMsg;
             this.SizeChanged += MainFrm_SizeChanged;
+
+            theme = new ThemeService();
+            //初始化GlbAppConfig
+            InitlAppconfig();
         }
+        private void InitlAppconfig()
+        {
+            //获取本程序启动路径
+            string locationStr = "_AppConfig.obj";
+
+            //载入配置文件读取是否已经记住选择，如果配置文件不存在就创建一个
+            if (!File.Exists(locationStr))
+            {
+                Program.GlbAppConfig = new _AppConfig()
+                {
+                    IsExitProgram = false,
+                    IsMinimized = true,
+                    RememberSelected = false,
+                    theme=null
+                };
+                //保存到本地
+                //Common.ObjSerialize.SaveToXml(Program.GlbAppConfig, locationStr);
+
+                Common.ObjSerialize.SerializeObj(Program.GlbAppConfig, locationStr);
+            }
+            else
+            {
+                //从本地载入
+                Program.GlbAppConfig = (_AppConfig)Common.ObjSerialize.Deserialize(locationStr);
+            }
+
+            //初始化主题
+            if (Program.GlbAppConfig.theme != null)
+            {
+                //绑定事件
+                theme.NotityEvent += SetTheme;
+                theme.NotifyAll();
+            }
+        }
+        //接收更新事件
+        private void SetTheme()
+        {
+            theme.SetFormTheme(Program.GlbAppConfig.theme, this);
+            //特殊处理的遮挡panel
+            //249, 249, 249
+            panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+        }
+
         private void MainFrm_SizeChanged(object sender, EventArgs e)
         {
             //判断是否选择的是最小化按钮
@@ -145,6 +194,7 @@ namespace Trans_C_Sharp
         private void btnAbout_Click(object sender, EventArgs e)
         {
             AboutFrm aboutFrm = new AboutFrm();
+            theme.SetFormTheme(Program.GlbAppConfig.theme, aboutFrm);
             aboutFrm.ShowDialog();
         }
 
@@ -161,7 +211,7 @@ namespace Trans_C_Sharp
             else
             {
                 //弹出询问窗口
-                AskFrm askFrm = new AskFrm();
+                AskFrm askFrm = new AskFrm(this.theme);
 
                 DialogResult dialogResult = askFrm.ShowDialog();
 
@@ -312,17 +362,15 @@ namespace Trans_C_Sharp
         public static extern int SetParent(int hWndChild, int hWndNewParent);
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            //this.IsMdiContainer = true;
-
             SettingFrm settingFrm = new SettingFrm();
-            //settingFrm.MdiParent = this;
-            //settingFrm.StartPosition = FormStartPosition.CenterScreen;
-            //settingFrm.Top =this.Top;
-            //settingFrm.Left= this.Left;
-
+            theme.SetFormTheme(Program.GlbAppConfig.theme,settingFrm);
             settingFrm.ShowDialog();
+        }
 
-            //SetParent((int)settingFrm.Handle, (int)this.Handle);
+        private void btnSkin_Click(object sender, EventArgs e)
+        {
+            ThemeForm themeForm = new ThemeForm(this.theme);
+            themeForm.ShowDialog();
         }
     }
 }
