@@ -40,8 +40,9 @@ namespace Trans_C_Sharp
                 Program.GlbAppConfig.IsMinimized=this.rdMin.Checked?true:false;
                 Program.GlbAppConfig.IsExitProgram= this.rdExit.Checked ? true : false;
                 Program.GlbAppConfig.RememberSelected= this.ckRemember.Checked ? true : false;
-                //Common.ObjSerialize.SaveToXml(Program.GlbAppConfig, "_AppConfig.xml");
-                Program.GlbAppConfig = (_AppConfig)Common.ObjSerialize.Deserialize("_AppConfig.obj");
+
+                //保存到本地配置
+                Common.ObjSerialize.SerializeObj(Program.GlbAppConfig,"_AppConfig.obj");
             }
 
             if (this.rdMin.Checked)

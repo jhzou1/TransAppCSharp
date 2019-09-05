@@ -32,6 +32,7 @@ namespace Trans_C_Sharp
             this.txtAbout.AppendText("12.修复托盘显示设置时候位置混乱问题.\n");
             this.txtAbout.AppendText("13.程序运行添加请求权限功能，确保程序需要的升级权限正常运行.\n");
             this.txtAbout.AppendText("14.新增主题维护功能.\n");
+            this.txtAbout.AppendText("15.修复本地配置文件不保存问题，修复第一次设置主题的一些bug.\n");
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Trans_C_Sharp
             //屏蔽测试按钮
             this.btnGet.Visible = false;
 
-            string infoMsg= "UncleTrans App 叔叔翻译 beta 1.3.0";
+            string infoMsg= "UncleTrans App 叔叔翻译 beta 1.3.2";
             this.lblInfo.Text = infoMsg;
             this.notifyIcon1.Text = infoMsg;
             this.SizeChanged += MainFrm_SizeChanged;
@@ -35,6 +35,8 @@ namespace Trans_C_Sharp
             //初始化GlbAppConfig
             InitlAppconfig();
         }
+
+        #region 皮肤设置部分
         private void InitlAppconfig()
         {
             //获取本程序启动路径
@@ -60,12 +62,11 @@ namespace Trans_C_Sharp
                 //从本地载入
                 Program.GlbAppConfig = (_AppConfig)Common.ObjSerialize.Deserialize(locationStr);
             }
-
+            //绑定事件
+            theme.NotityEvent += SetTheme;
             //初始化主题
             if (Program.GlbAppConfig.theme != null)
             {
-                //绑定事件
-                theme.NotityEvent += SetTheme;
                 theme.NotifyAll();
             }
         }
@@ -77,6 +78,15 @@ namespace Trans_C_Sharp
             //249, 249, 249
             panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
         }
+
+        private void btnSkin_Click(object sender, EventArgs e)
+        {
+            ThemeForm themeForm = new ThemeForm(this.theme);
+            themeForm.ShowDialog();
+        }
+
+        #endregion
+
 
         private void MainFrm_SizeChanged(object sender, EventArgs e)
         {
@@ -369,10 +379,6 @@ namespace Trans_C_Sharp
             settingFrm.ShowDialog();
         }
 
-        private void btnSkin_Click(object sender, EventArgs e)
-        {
-            ThemeForm themeForm = new ThemeForm(this.theme);
-            themeForm.ShowDialog();
-        }
+        
     }
 }
