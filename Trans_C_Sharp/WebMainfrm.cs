@@ -17,6 +17,10 @@ namespace Trans_C_Sharp
     public partial class WebMainfrm : Form
     {
         public  ThemeService theme = null;
+
+        //软件版本号
+        private const string _VerNum= "139";
+
         public WebMainfrm()
         {
             InitializeComponent();
@@ -26,15 +30,76 @@ namespace Trans_C_Sharp
             //屏蔽测试按钮
             this.btnGet.Visible = false;
 
-            string infoMsg= "UncleTrans App 叔叔翻译 beta 1.3.2";
+            Char[] chArr = _VerNum.ToCharArray();
+
+            string infoMsg= $"UncleTrans App 叔叔翻译 beta {chArr[0]}.{chArr[1]}.{chArr[2]}";
+
+            //AutoCheckForUpdate();
+           
+
             this.lblInfo.Text = infoMsg;
             this.notifyIcon1.Text = infoMsg;
             this.SizeChanged += MainFrm_SizeChanged;
 
             theme = new ThemeService();
+
             //初始化GlbAppConfig
             InitlAppconfig();
         }
+        #region 检查软件更新
+        private void btnCheckForUpdate_Click(object sender, EventArgs e)
+        {
+            //015.3vftp.com
+            if (File.Exists("UpdateFrm.exe"))
+            {
+                File.Delete("UpdateFrm.exe");
+
+                //【1】更新更新软件先
+                this.lblMsg.Text = "正在启动更新.........";
+                FtpService ftpService = new FtpService();
+                ftpService.Download("TransApp/UpdateFrm.exe", "UpdateFrm.exe");
+
+                //【2】启动更新软件
+                System.Diagnostics.Process.Start("UpdateFrm.exe");
+            }
+            else
+            {
+                this.lblMsg.Text = "正在启动更新.........";
+                FtpService ftpService = new FtpService();
+                ftpService.Download("TransApp/UpdateFrm.exe", "UpdateFrm.exe");
+
+                //【2】启动更新软件
+                System.Diagnostics.Process.Start("UpdateFrm.exe");
+            }
+
+            //Closed the main program
+            this.Tag = "Close for update";
+            this.Close();
+        }
+
+        private void AutoCheckForUpdate()
+        {
+            FtpService ftpService = new FtpService();
+            ftpService.Download("TransApp/_updateInfo.xml", "_updateInfo.xml");
+
+            if (File.Exists("_updateInfo.xml"))
+            {
+                UpdateInfo newUpdateInfo = (UpdateInfo)Common.ObjSerialize.GetFromXml<UpdateInfo>("_updateInfo.xml");
+
+                if (Convert.ToInt32(newUpdateInfo.VerNum)>Convert.ToInt32(_VerNum))
+                {
+                    Char[] chArr = newUpdateInfo.VerNum.ToCharArray();
+
+                    if (DialogResult.OK ==
+                        MessageBox.Show($"更新特性:{newUpdateInfo.VerDesc}", $"发现新版本：{chArr[0]}.{chArr[1]}.{chArr[2]}",
+                        MessageBoxButtons.OKCancel,MessageBoxIcon.Question))
+                    {
+                        btnCheckForUpdate_Click(null,null);
+                    }
+                }
+            }
+        }
+        #endregion
 
         #region 皮肤设置部分
         private void InitlAppconfig()
@@ -87,7 +152,7 @@ namespace Trans_C_Sharp
 
         #endregion
 
-
+        #region  界面调整
         private void MainFrm_SizeChanged(object sender, EventArgs e)
         {
             //判断是否选择的是最小化按钮
@@ -108,6 +173,8 @@ namespace Trans_C_Sharp
             webBr1.ScrollBarsEnabled = false;
 
             webBr1.IsWebBrowserContextMenuEnabled = false;
+
+            
         }
         private void webBr1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
@@ -125,7 +192,18 @@ namespace Trans_C_Sharp
 
             //设置顶层遮罩
             this.topPanel.Height = this.Height /7;
+
+            AutoCheckForUpdate();
+            //[1]根据自己的版本号生成一个xml配置信息
+            UpdateInfo updateInfo = new UpdateInfo()
+            {
+                VerNum = _VerNum,
+                VerDesc = "新增自动检查更新功能..."
+            };
+            Common.ObjSerialize.SaveToXml(updateInfo, "_updateInfo.xml");
         }
+
+        #endregion
 
         #region 抓取网页部分
         private void button1_Click(object sender, EventArgs e)
@@ -166,40 +244,13 @@ namespace Trans_C_Sharp
 
         #endregion
 
+        #region 功能按钮部分
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnCheckForUpdate_Click(object sender, EventArgs e)
-        {
-            //015.3vftp.com
-            if (File.Exists("UpdateFrm.exe"))
-            {
-                File.Delete("UpdateFrm.exe");
-
-                //【1】更新更新软件先
-                this.lblMsg.Text = "正在启动更新.........";
-                FtpService ftpService = new FtpService();
-                ftpService.Download("TransApp/UpdateFrm.exe", "UpdateFrm.exe");
-
-                //【2】启动更新软件
-                System.Diagnostics.Process.Start("UpdateFrm.exe");
-            }
-            else
-            {
-                this.lblMsg.Text = "正在启动更新.........";
-                FtpService ftpService = new FtpService();
-                ftpService.Download("TransApp/UpdateFrm.exe", "UpdateFrm.exe");
-
-                //【2】启动更新软件
-                System.Diagnostics.Process.Start("UpdateFrm.exe");
-            }
-
-            //Closed the main program
-            this.Tag = "Close for update";
-            this.Close();
-        }
+       
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
@@ -252,37 +303,6 @@ namespace Trans_C_Sharp
             //图标显示在托盘区
             notifyIcon1.Visible = true;
         }
-
-        #region  拖动窗体的实现
-
-        private Point mouseOff;//鼠标移动位置变量
-        private bool leftFlag;//标签是否为左键
-        private void FrmMain_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                mouseOff = new Point(-e.X, -e.Y); //得到变量的值
-                leftFlag = true;                  //点击左键按下时标注为true;
-            }
-        }
-        private void FrmMain_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (leftFlag)
-            {
-                Point mouseSet = Control.MousePosition;
-                mouseSet.Offset(mouseOff.X, mouseOff.Y);  //设置移动后的位置
-                Location = mouseSet;
-            }
-        }
-        private void FrmMain_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (leftFlag)
-            {
-                leftFlag = false;//释放鼠标后标注为false;
-            }
-        }
-
-        #endregion
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -338,7 +358,7 @@ namespace Trans_C_Sharp
 
                 settingFrm.ShowDialog();
             }
-            
+
         }
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -375,10 +395,41 @@ namespace Trans_C_Sharp
         {
             SettingFrm settingFrm = new SettingFrm();
             if (Program.GlbAppConfig.theme != null)
-                theme.SetFormTheme(Program.GlbAppConfig.theme,settingFrm);
+                theme.SetFormTheme(Program.GlbAppConfig.theme, settingFrm);
             settingFrm.ShowDialog();
         }
 
-        
+        #endregion
+
+        #region  拖动窗体的实现
+
+        private Point mouseOff;//鼠标移动位置变量
+        private bool leftFlag;//标签是否为左键
+        private void FrmMain_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                mouseOff = new Point(-e.X, -e.Y); //得到变量的值
+                leftFlag = true;                  //点击左键按下时标注为true;
+            }
+        }
+        private void FrmMain_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (leftFlag)
+            {
+                Point mouseSet = Control.MousePosition;
+                mouseSet.Offset(mouseOff.X, mouseOff.Y);  //设置移动后的位置
+                Location = mouseSet;
+            }
+        }
+        private void FrmMain_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (leftFlag)
+            {
+                leftFlag = false;//释放鼠标后标注为false;
+            }
+        }
+
+        #endregion
     }
 }

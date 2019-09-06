@@ -58,7 +58,7 @@ public     class YouDaoService
                 ms.Close();
                 return Convert.ToBase64String(arr);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

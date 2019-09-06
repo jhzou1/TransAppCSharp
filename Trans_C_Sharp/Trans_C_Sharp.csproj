@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>text_bold.ico</ApplicationIcon>
+    <ApplicationIcon>字典.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common">
@@ -95,6 +95,7 @@
     <Compile Include="Models\_AppConfig.cs" />
     <Compile Include="Services\YouDaoService.cs" />
     <Compile Include="Models\YouDaoImgModel.cs" />
+    <Compile Include="Models\UpdateInfo.cs" />
     <Compile Include="WebMainfrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="text_bold.ico" />
+    <Content Include="字典.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

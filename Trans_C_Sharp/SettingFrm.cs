@@ -13,7 +13,6 @@ namespace Trans_C_Sharp
 {
     public partial class SettingFrm : Form
     {
-        private _AppConfig _AppConfig = null;
         public SettingFrm()
         {
             InitializeComponent();
